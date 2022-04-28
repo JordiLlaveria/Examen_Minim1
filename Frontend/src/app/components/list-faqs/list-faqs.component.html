@@ -1,0 +1,41 @@
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title">FAQS LIST</span>
+                    <button class="btn btn-success float-end" routerLink="/create-faq">NEW FAQ</button>
+                    <div class="table-responsive">
+                     <table *ngIf="listFaqs.length > 0" class="table table-striped mt-3">
+                       <thead>
+                         <tr>
+                           <th scope="col">ID</th>
+                           <th scope="col">Título de la pregunta</th>
+                           <th scope="col">Pregunta</th>
+                           <th scope="col">Respuesta</th>
+                           <th scope="col">Nombre del creador</th>
+                           <th scope="col">Fecha de creación</th>
+                           <th scope="col"></th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                         <tr *ngFor="let faq of listFaqs">
+                           <td>{{ faq._id }}</td>
+                           <td>{{ faq.titulopregunta }}</td>
+                           <td>{{ faq.pregunta }}</td>
+                           <td>{{ faq.respuesta }}</td>
+                           <td>{{ faq.persona.name }}</td>
+                           <td>{{ faq.fechapregunta }}</td>
+                           <td>
+                               <i (click)="deleteFaq(faq.titulopregunta)" class="fa-solid fa-trash text-danger"></i>
+                           </td>
+                         </tr>
+                       </tbody>
+                     </table>
+                   </div>
+                   <h5 style="text-align: start; margin-top: 10px;" *ngIf="listFaqs.length == 0">There are no faqs in the database</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

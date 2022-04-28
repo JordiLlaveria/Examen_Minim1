@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class="class row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title"> {{ title | uppercase }} </span>
+                    <form class="mt-3" [formGroup]="faqForm" (ngSubmit)="addFaq()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="titulopregunta" 
+                                class="form-control form-control-lg" placeholder="Título de la pregunta">
+                            <div class="text-danger"
+                                *ngIf="faqForm.get('titulopregunta')?.hasError('required') && faqForm.get('titulopregunta')?.touched">
+                                <span>Título de la pregunta is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="pregunta" 
+                                class="form-control form-control-lg" placeholder="Pregunta">
+                            <div class="text-danger"
+                                *ngIf="faqForm.get('pregunta')?.hasError('required') && faqForm.get('pregunta')?.touched">
+                                <span>Pregunta is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="respuesta"
+                                class="form-control form-control-lg" placeholder="Respuesta">
+                            <div class="text-danger"
+                                *ngIf="faqForm.get('respuesta')?.hasError('required') && faqForm.get('respuesta')?.touched">
+                                <span>Respuesta is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="persona"
+                                class="form-control form-control-lg" placeholder="Nombre del creador de la pregunta">
+                            <div class="text-danger"
+                                *ngIf="faqForm.get('persona')?.hasError('required') && faqForm.get('persona')?.touched">
+                                <span>Nombre del creador is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="fechapregunta"
+                                class="form-control form-control-lg" placeholder="Fecha de la pregunta">
+                            <div class="text-danger"
+                                *ngIf="faqForm.get('fechapregunta')?.hasError('required') && faqForm.get('fechapregunta')?.touched">
+                                <span>Fecha is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" id="myBtn" [disabled]="faqForm.invalid" class="btn btn-success btn-lg float-end">SUBMIT</button>
+                            <button routerLink="/list-faqs" class="btn btn-secondary btn-lg float-start">BACK</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

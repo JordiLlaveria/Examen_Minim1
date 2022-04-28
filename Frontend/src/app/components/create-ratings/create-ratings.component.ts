@@ -92,7 +92,7 @@ export class CreateRatingsComponent implements OnInit {
         console.log(data);
         this.ratingForm.setValue({
           tittle: data.tittle,
-          rater: data.rater.name,
+          rater: data.rater,
           userRated: data.userRated || null,
           activityRated: data.activityRated || null,
           rating: data.rating,
